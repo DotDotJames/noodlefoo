@@ -109,7 +109,19 @@ with open(file_path, 'r') as file:
     
 # Remove newline characters from each line and create the list
 codes = [line.strip()[1:-1] for line in lines]
-phrase_sim = np.load('phrase-emoji-sim.npy')
+# phrase_sim = np.load('./phrase-emoji-sim.npy')
+
+with open("phrase-emoji-sim.txt", 'r') as f:
+    csv_content = f.read()
+    
+from io import StringIO
+
+# Convert CSV text back to numpy array
+csv_file = StringIO(csv_content)
+phrase_sim = np.loadtxt(csv_file, delimiter=",")
+
+print(phrase_sim[1][1]);
+
 subset = phrase_sim[:,3590:3790]
 highest_index = np.argmax(subset, axis=1)
 
