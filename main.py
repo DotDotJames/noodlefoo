@@ -22,9 +22,9 @@ st.markdown("""
 # hide the Streamlit header & footer / merge / dupe?
 hide_st_style = """
             <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
+            #MainMenu {display:none !important; visibility: hidden !important;}
+            footer {display:none !important; visibility: hidden !important;}
+            header {display:none !important; visibility: hidden !important;}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
@@ -35,6 +35,7 @@ st.markdown(
     <style>
         button[title='View fullscreen'] {
             display: none !important;
+            visibility: hidden !important;
         }
     </style>
     """,
@@ -46,7 +47,8 @@ st.markdown(
     """
     <style>
         label {
-            visibility: hidden;
+            display: none !important;
+            visibility: hidden !important;
         }
     </style>
     """,
@@ -165,8 +167,8 @@ def send_magic_link(email):
 
 # magic link to subscribe for updates
 # Display the Magic Link button
-if st.button("Register with Magic Link"):
-    show_registration_modal()
+# if st.button("Register with Magic Link"):
+    # show_registration_modal()
 
 # header bar placeholder
 # st.markdown('<div id="custom-id">Your content here</div>', unsafe_allow_html=True)
